@@ -1,0 +1,45 @@
+@extends('layouts.main')
+
+@section('content')
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0">Категории</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item active">Категории</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{--    <x-title title="132" />--}}
+    <section>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    @foreach($categories as $category)
+                        <div style="margin: 50px;" class="category-item">
+                            ID: {{ $category->id }}<br/>
+                            Название: {{ $category->title }}<br/>
+                            Описание: {{ $category->description }}<br/>
+                            Дата создания: {{ $category->created_at }}<br/>
+                            Дата изменения: {{ $category->updated_at }}<br/>
+                            <div style="display: flex;">
+                                <a href="{{ route('category.edit', $category) }}">Изменить</a>
+                                <form action="{{ route('category.destroy', $category) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit">Удалить</button>
+                                </form>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    </section>
+    {{--        <x-showCategory :category="$category" />--}}
+@endsection

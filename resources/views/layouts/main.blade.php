@@ -121,99 +121,60 @@
             </li>
         </ul>
     </nav>
-    <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
+        <a href="{{ route('main.index') }}" class="brand-link">
             <span class="brand-text font-weight-light">Cringe</span>
         </a>
 
-        <!-- Sidebar -->
         <div class="sidebar">
 
-            <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
                     <li>
-                        <a href="pages/gallery.html" class="nav-link">
+                        <a href="{{ route('category.index') }}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Заказы
-                            </p>
-                        </a>
-                        <a href="pages/gallery.html" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Продукты
-                            </p>
-                        </a>
-                        <a href="pages/gallery.html" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Категории
-                            </p>
-                        </a>
-                        <a href="pages/gallery.html" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Теги
-                            </p>
-                        </a>
-                        <a href="pages/gallery.html" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Цвета
-                            </p>
-                        </a>
-                        <a href="pages/gallery.html" class="nav-link">
-                            <i class="nav-icon far fa-image"></i>
-                            <p>
-                                Пользователи
-                            </p>
+                            <p>Категории</p>
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ route('category.create') }}" class="nav-link">
+                            <i class="nav-icon far fa-image"></i>
+                            <p>Добавить категорию</p>
+                        </a>
+                    </li>
+                    @foreach($categories as $category)
+                    <li>
+                        <a href="{{ route('category.show', $category->id) }}" class="nav-link">
+                            <i class="nav-icon far fa-image"></i>
+                            <p>{{ $category->title }}</p>
+                        </a>
+                    </li>
+                    @endforeach
                 </ul>
             </nav>
-            <!-- /.sidebar-menu -->
         </div>
-        <!-- /.sidebar -->
     </aside>
 
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         @yield('content')
     </div>
-    <!-- /.content-wrapper -->
     <footer class="main-footer">
         <strong>Copyright &copy; 2014-{{ now()->year }} <a href="{{ route('main.index') }}">Cringe</a>.</strong>
         Все права защищены.
     </footer>
 
-    <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
     </aside>
-    <!-- /.control-sidebar -->
 </div>
-<!-- ./wrapper -->
 
-<!-- jQuery -->
 <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
-<!-- jQuery UI 1.11.4 -->
 <script src="{{ asset('adminlte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
 </script>
-<!-- Bootstrap 4 -->
 <script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- overlayScrollbars -->
 <script src="{{ asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.js') }}"></script>
 </body>
 </html>
