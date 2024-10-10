@@ -132,20 +132,27 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <li>
+                        <h5 class="brand-text font-weight-light" style="color:lightgray">Инструменты:</h5>
+                    </li>
+                    <li>
                         <a href="{{ route('category.index') }}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
-                            <p>Категории</p>
+                            <p>Все категории</p>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ route('category.create') }}" class="nav-link">
+                        <a href="{{ route('product.index') }}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
-                            <p>Добавить категорию</p>
+                            <p>Вся продукция</p>
                         </a>
+                    </li>
+                    <br/>
+                    <li>
+                        <h5 class="brand-text font-weight-light" style="color:lightgray">Категории:</h5>
                     </li>
                     @foreach($categories as $category)
                     <li>
-                        <a href="{{ route('category.show', $category->id) }}" class="nav-link">
+                        <a href="{{ route('product.index', ['category_id' => $category->id])  }}" class="nav-link">
                             <i class="nav-icon far fa-image"></i>
                             <p>{{ $category->title }}</p>
                         </a>
