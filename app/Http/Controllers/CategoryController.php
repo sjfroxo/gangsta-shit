@@ -13,7 +13,6 @@ class CategoryController extends Controller
         $categories = Category::all();
         return view('category.index', compact('categories'));
     }
-
     public function create()
     {
         return view('category.create');
@@ -21,32 +20,30 @@ class CategoryController extends Controller
 
     public function store(StoreRequest $request)
     {
-        Category::query()->create($request->validated());
+        return redirect()->route('category.index')
+            ->with('category', Category::query()->create($request->validated()));
+    }
+    public function edit(string $slug)
+    {
+        return view('category.edit')
+            ->with('category', Category::query()->findOrFail($slug));
+    }
+    public function update(UpdateRequest $request, string $slug)
+    {
+
+        return redirect()->route('category.index')
+            ->with('category', Category::query()->findOrFail($slug)
+                ->update($request->validated()));
+    }
+    public function show(string $slug)
+    {
+        return view('category.show')
+            ->with('category', Category::query()->findOrFail($slug));
+    }
+    public function destroy(string $slug)
+    {
+        Category::query()->findOrFail($slug)->delete();
 
         return redirect()->route('category.index');
-    }
-
-    public function edit(Category $category)
-    {
-        return view('category.edit',compact('category'));
-    }
-
-    public function update(UpdateRequest $request, Category $category)
-    {
-        $category->update($request->validated());
-
-        return redirect()->route('category.index');
-    }
-
-//    public function show(int $id)
-//    {
-//        return view('category.show')->with('category', Category::query()->findOrFail($id));
-//    }
-
-    public function destroy(int $id)
-    {
-            Category::query()->findOrFail($id)->delete();
-
-            return redirect()->route('category.index');
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0734507edabfd0af97005b036da723f5",
+    "content-hash": "b1f22ebd3400dd5382246a8b077c0b15",
     "packages": [
         {
             "name": "brick/math",
@@ -1049,6 +1049,65 @@
                 }
             ],
             "time": "2023-12-03T19:50:20+00:00"
+        },
+        {
+            "name": "italofantone/slugable",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/italofantone/slugable.git",
+                "reference": "3b28907aa4da2ceb87e1f8cd5584d193a0c26a19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/italofantone/slugable/zipball/3b28907aa4da2ceb87e1f8cd5584d193a0c26a19",
+                "reference": "3b28907aa4da2ceb87e1f8cd5584d193a0c26a19",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^11.0",
+                "illuminate/support": "^11.0",
+                "php": "^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^9.2",
+                "phpunit/phpunit": "^11.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Italofantone\\Slugable\\SlugableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Italofantone\\Slugable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Italo Morales Fantone",
+                    "email": "i@rimorsoft.com"
+                }
+            ],
+            "description": "Is a PHP library designed to simplify and automate the creation of URL-friendly slugs based on Laravel.",
+            "keywords": [
+                "eloquent",
+                "laravel",
+                "slug",
+                "slugable"
+            ],
+            "support": {
+                "issues": "https://github.com/italofantone/slugable/issues",
+                "source": "https://github.com/italofantone/slugable/tree/v1.1.0"
+            },
+            "time": "2024-09-20T18:47:26+00:00"
         },
         {
             "name": "laravel/framework",

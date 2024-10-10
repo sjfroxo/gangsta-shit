@@ -17,7 +17,7 @@
     </div>
     <section class="content">
         <div class="container-fluid">
-            <form action="{{ route('category.update', $category->id) }}" method="POST">
+            <form action="{{ route('category.update', $category->slug) }}" method="POST">
                 @csrf
                 @method('PATCH')
                 <label for="title">Название категории:</label>
