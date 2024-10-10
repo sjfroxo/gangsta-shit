@@ -3,7 +3,7 @@
 namespace App\Http\View\Composers;
 
 use App\Models\Category;
-use App\Models\Item;
+use App\Models\Product;
 
 class CategoryComposer
 {
@@ -12,7 +12,12 @@ class CategoryComposer
         $categories = Category::all();
         view()->share('categories', $categories);
 
-        $items = Item::all();
-        view()->share('items', $items);
+//        foreach ($categories as $category) {
+//            $category = Category::query()->find($category->id);
+//            view()->share('category', $category);
+//        }
+
+        $products = Product::all();
+        view()->share('products', $products);
     }
 }
